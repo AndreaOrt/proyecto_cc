@@ -25,7 +25,7 @@ SECRET_KEY = 'ch4e3!=t%y=b(kes##!1$nqtmv@(!$mhwes(=b*j)=p953%c-^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['proyectocc.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -76,8 +76,15 @@ WSGI_APPLICATION = 'proyectocc.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': '173.249.59.89:1521/xe',
+        'USER': 'jaguaroracle',
+        'PASSWORD': 'Jaguar2021',
+        'TEST': {
+            'USER': 'default_test',
+            'TBLSPACE': 'default_test_tbls',
+            'TBLSPACE_TMP': 'default_test_tbls_tmp',
+        },
     }
 }
 
