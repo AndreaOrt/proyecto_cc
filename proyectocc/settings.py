@@ -77,17 +77,13 @@ WSGI_APPLICATION = 'proyectocc.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle',
-        'NAME': '173.249.59.89:1521/xe',
+        'NAME': 'jaguaroracle',
         'USER': 'jaguaroracle',
         'PASSWORD': 'Jaguar2021',
-        'TEST': {
-            'USER': 'default_test',
-            'TBLSPACE': 'default_test_tbls',
-            'TBLSPACE_TMP': 'default_test_tbls_tmp',
-        },
+        'HOST': '173.249.59.89/xe',
+        'PORT': '1521',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
