@@ -25,7 +25,7 @@ SECRET_KEY = 'ch4e3!=t%y=b(kes##!1$nqtmv@(!$mhwes(=b*j)=p953%c-^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'proyectocc.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'global_templates'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,13 +77,27 @@ WSGI_APPLICATION = 'proyectocc.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle',
-        'NAME': 'jaguaroracle',
+        'NAME': '173.249.59.89:1521/xe',
         'USER': 'jaguaroracle',
         'PASSWORD': 'Jaguar2021',
-        'HOST': '173.249.59.89/xe',
-        'PORT': '1521',
+        'TEST': {
+            'USER': 'default_test',
+            'TBLSPACE': 'default_test_tbls',
+            'TBLSPACE_TMP': 'default_test_tbls_tmp',
+        },
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.oracle',
+#         'NAME': 'jaguaroracle',
+#         'USER': 'jaguaroracle',
+#         'PASSWORD': 'Jaguar2021',
+#         'HOST': '173.249.59.89/xe',
+#         'PORT': '1521',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
