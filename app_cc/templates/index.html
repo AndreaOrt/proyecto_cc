@@ -26,13 +26,13 @@
 							<td>{{colaborador.genero}}</td>
 							<td>
 								<center>
-									<a href="{% url 'colaborador:eliminar_colaborador' colaborador.pk  %}" class="btn btn-block btn-danger" onclick="return confirm('Esta seguro de eliminar el registro')">ELIMINAR</a>
+									<a href="{% url 'app_cc:eliminar_colaborador' colaborador.pk  %}" class="btn btn-block btn-danger" onclick="return confirm('Esta seguro de eliminar el registro')">ELIMINAR</a>
 								</center>
 							</td>
 
 							<td>
 								<center>
-									{# <a href="{% url 'colaborador:modificar_colaborador' colaborador.pk  %}" class="btn btn-block btn-primary" onclick="return confirm('Esta seguro de modificar el registro')">MODIFICAR</a> #}
+									{# <a href="{% url 'app_cc:modificar_colaborador' colaborador.pk  %}" class="btn btn-block btn-primary" onclick="return confirm('Esta seguro de modificar el registro')">MODIFICAR</a> #}
 
 									<button type="button" class="btn btn-primary " data-toggle="modal" data-target="#modal{{colaborador.pk}}">
 					                  MODIFICAR
@@ -49,7 +49,7 @@
 								            </div>
 								            <div class="modal-body">
 								            
-								            <form role="form" method="post" action="{% url 'colaborador:modificar_colaborador' colaborador.pk %}">
+								            <form role="form" method="post" action="{% url 'app_cc:modificar_colaborador' colaborador.pk %}">
 								              {% csrf_token %}
 						                		<div class="form-group">
 								            	    <label for="exampleInputEmail1">Identificación <a class="fa fa-asterisk" style="color:red"></a></label>
@@ -160,7 +160,7 @@
 
 		{% if  'error' in request.GET %}
 			alertify.alert("DEBE INGRESAR TODOS LOS CAMPOS OBLIGATORIOS O DEBES SELECCIONAR UN GENERO",function(){
-				history.pushState(null,"","{% url 'colaborador:lista_colaborador' %}");
+				history.pushState(null,"","{% url 'app_cc:lista_colaborador' %}");
 			});
 		{% endif %}
 

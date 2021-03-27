@@ -12,7 +12,7 @@ from app_cc.models import *
 def login(request):
 	mensaje = ''
 	if request.user.is_authenticated():
-		return HttpResponseRedirect(reverse('colaborador:lista_colaborador'))
+		return HttpResponseRedirect(reverse('app_cc:lista_colaborador'))
 	
 	if request.method == 'POST':
 		username = request.POST.get('usuario')
@@ -21,7 +21,7 @@ def login(request):
 		if user is not None:
 			if user.is_active:
 				auth_login(request,user)
-				return redirect('colaborador:lista_colaborador')
+				return redirect('app_cc:lista_colaborador')
 			else:
 				mensaje = 'USUARIO INACTIVO'
 				return render(request,'login.html',{'mensaje':mensaje})
@@ -32,7 +32,7 @@ def login(request):
 
 def cerrar_sesion(request):
 	logout(request)
-	return HttpResponseRedirect(reverse('colaborador:login'))
+	return HttpResponseRedirect(reverse('app_cc:login'))
 
 
 def index(request):
@@ -98,7 +98,7 @@ def registrar_colaborador(request):
 				return render(request,'registrar_colaborador.html',ctx)
 			else:
 				transaction.commit()
-				return HttpResponseRedirect(reverse('colaborador:lista_colaborador'))
+				return HttpResponseRedirect(reverse('app_cc:lista_colaborador'))
 		else:
 			ctx = {'generos':generos,
 					'errores':errores,
@@ -112,7 +112,7 @@ def registrar_colaborador(request):
 
 def eliminar_colaborador(request,id_colaborador):
 	eliminar = Colaborador.objects.get(pk=id_colaborador).delete()
-	return HttpResponseRedirect(reverse('colaborador:lista_colaborador'))
+	return HttpResponseRedirect(reverse('app_cc:lista_colaborador'))
 
 def modificar_colaborador(request,id_colaborador):
 	consulta = Colaborador.objects.all()
@@ -140,10 +140,10 @@ def modificar_colaborador(request,id_colaborador):
 
 			except Exception as e:
 				print(e )
-				return HttpResponseRedirect(reverse('colaborador:lista_colaborador')+"?error")
+				return HttpResponseRedirect(reverse('app_cc:lista_colaborador')+"?error")
 			else:
-				return HttpResponseRedirect(reverse('colaborador:lista_colaborador'))
+				return HttpResponseRedirect(reverse('app_cc:lista_colaborador'))
 		else:
-			return HttpResponseRedirect(reverse('colaborador:lista_colaborador')+"?error")
+			return HttpResponseRedirect(reverse('app_cc:lista_colaborador')+"?error")
 	else:
-		return HttpResponseRedirect(reverse('colaborador:lista_colaborador'))
+		return HttpResponseRedirect(reverse('app_cc:lista_colaborador'))
