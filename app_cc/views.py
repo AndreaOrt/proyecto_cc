@@ -6,6 +6,7 @@ from django.http import HttpResponseRedirect,JsonResponse,HttpResponse
 from django.contrib.auth import login as auth_login,logout,authenticate
 from django.urls import reverse
 from django.shortcuts import render,redirect
+from app_cc.models import *
 
 # Create your views here.
 def login(request):
