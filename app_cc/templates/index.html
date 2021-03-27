@@ -23,7 +23,7 @@
 							<td>{{colaborador.nombres}}</td>
 							<td>{{colaborador.apellidos}}</td>
 							<td>{{colaborador.identificacion}}</td>
-							<td>{{colaborador.genero}}</td>
+							<td>{{colaborador.Genero}}</td>
 							<td>
 								<center>
 									<a href="{% url 'app_cc:eliminar_colaborador' colaborador.pk  %}" class="btn btn-block btn-danger" onclick="return confirm('Esta seguro de eliminar el registro')">ELIMINAR</a>
@@ -58,7 +58,8 @@
 									                    <input type="text" class="form-control" id="id_identificacion"
 									                    name="identificacion" placeholder="Identificación" value="{{colaborador.identificacion}}" required="">
 								                  	</div>
-
+								                </div>
+								                <div class="col-sm-6">
 								                  	<div class="form-group">
 									                    <label for="exampleInputEmail1">Nombres<span style="color:red">*</span></label>
 									                    <input type="text" class="form-control" id="id_nombres" name="nombres" placeholder="Nombres" value="{{colaborador.nombres}}" required>
@@ -72,16 +73,13 @@
 										                    <label for="exampleInputEmail1">Apellidos<span style="color:red">*</span></label>
 										                    <input type="text" class="form-control" id="id_apellidos" name="apellidos" placeholder="Apellidos" value="{{colaborador.apellidos}}" required>
 								                  		</div>
-
-								                  		<div class="row">
-								                  			<div class="col-sm-6">
-								                  				<div class="form-group">
-												                    <label for="exampleInputEmail1">Teléfono<span style="color:red">*</span></label>
-												                    <input type="text" class="form-control" id="id_telefono" name="telefono" placeholder="Teléfono" value="{{colaborador.telefono}}" required>
-										                  		</div>
-								                  			</div>
-								                  		</div>
 							                  		</div>
+							                  		<div class="col-sm-6">
+						                  				<div class="form-group">
+										                    <label for="exampleInputEmail1">Teléfono<span style="color:red">*</span></label>
+										                    <input type="text" class="form-control" id="id_telefono" name="telefono" placeholder="Teléfono" value="{{colaborador.telefono}}" required>
+								                  		</div>
+						                  			</div>
 						                  	    </div>
 
 						                  		<div class="row">
