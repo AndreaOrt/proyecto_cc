@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
                 ('apellidos', models.CharField(max_length=50)),
                 ('telefono', models.CharField(max_length=20)),
                 ('fecha_nacimiento', models.DateField()),
-                ('Genero', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='python.genero')),
+                ('Genero', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='app_cc.genero')),
             ],
         ),
     ]
