@@ -134,7 +134,7 @@ def modificar_colaborador(request,id_colaborador):
 																					apellidos=request.POST.get('apellidos'),
 																					telefono=request.POST.get('telefono'),
 																					fecha_nacimiento=request.POST.get('fecha_nacimiento'),
-																					genero=request.POST.get('genero')
+																					Genero=request.POST.get('genero')
 																				)
 
 			except Exception as e:
