@@ -89,7 +89,7 @@ def registrar_colaborador(request):
 			except Exception as e:
 				transaction.rollback()
 				print (e)
-				errores['administrador'] =  "CONTACTAR AL ADMINISTRADOR DEL SISTEMA"
+				errores['administrador'] =  e
 				ctx = {'generos':generos,
 						'errores':errores,
 						'ret_data':ret_data,
