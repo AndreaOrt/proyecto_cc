@@ -103,7 +103,7 @@
 								                          <select class="form-control selectpicker" style="width: 100%;" id="id_genero" data-live-search="true" name="genero">
 								                              <option value='0' selected="selected" >--SELECCIONE--</option>
 								                             {% for genero in generos  %}
-								                                {% ifequal genero.pk  colaborador.genero.pk   %} 
+								                                {% ifequal genero.pk  colaborador.Genero.pk   %} 
 								                                  <option value='{{genero.pk}}' selected>{{genero.descripcion_genero}}</option>
 								                                {% else %}
 								                                    <option value='{{genero.pk}}'>{{genero.descripcion_genero}}</option>
