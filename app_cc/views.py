@@ -80,7 +80,7 @@ def registrar_colaborador(request):
 		query_colaborador['apellidos'] = request.POST.get('apellidos')
 		query_colaborador['telefono'] = request.POST.get('telefono')
 		query_colaborador['fecha_nacimiento'] = request.POST.get('fecha_nacimiento')
-		query_colaborador['genero'] = Genero.objects.get(pk=request.POST.get('genero'))
+		query_colaborador['Genero'] = Genero.objects.get(pk=request.POST.get('genero'))
 
 		if not errores:
 			try:
