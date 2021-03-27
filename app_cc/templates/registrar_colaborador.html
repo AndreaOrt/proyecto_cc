@@ -16,9 +16,9 @@ UTH | REGISTRAR COLABORADOR
           {% endif %} COLABORADOR</h3>
         </div>
         {% if guardar_editar %}
-          <form role="form" method="post" action="{% url 'colaborador:registrar_colaborador' %}" >
+          <form role="form" method="post" action="{% url 'app_cc:registrar_colaborador' %}" >
         {% else %}
-          <form role="form" method="post" action="{% url 'colaborador:modificar_colaborador' id_colaborador %}" >    
+          <form role="form" method="post" action="{% url 'app_cc:modificar_colaborador' id_colaborador %}" >    
         
         {% endif %}
        
