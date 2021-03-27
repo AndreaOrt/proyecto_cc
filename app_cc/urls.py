@@ -5,7 +5,7 @@ app_name = 'app_cc'
 
 urlpatterns = [
     path('index/', views.index, name="index"),
-    path('principal/', views.lista_colaborador, name="lista_colaborador"),
+    path('listado/', views.lista_colaborador, name="lista_colaborador"),
     path('',views.login,name='login'),
   	path('salir',views.cerrar_sesion,name='cerrar_sesion'),
  	path('registrar/colaborador/',views.registrar_colaborador,name='registrar_colaborador'),
