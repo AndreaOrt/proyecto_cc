@@ -11,7 +11,7 @@ from app_cc.models import *
 # Create your views here.
 def login(request):
 	mensaje = ''
-	if request.user.is_authenticated():
+	if request.user.is_authenticated:
 		return HttpResponseRedirect(reverse('app_cc:lista_colaborador'))
 	
 	if request.method == 'POST':
