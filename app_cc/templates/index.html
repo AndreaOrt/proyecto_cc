@@ -13,8 +13,8 @@
 						<th>Apellidos</th>
 						<th>Identificacion</th>
 						<th>Genero</th>
-						<th>Eliminar</th>
-						<th>Modificar</th>
+						<th>Eliminar-{{lista_colaborador}}</th>
+						<th>Modificar -- {{lista_colaborador.count}}</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -42,7 +42,7 @@
 								        <div class="modal-dialog">
 								          <div class="modal-content">
 								            <div class="modal-header">
-								              <h4 class="modal-title">COLABORADOR: {{colaborador.nombres}} {{colaborador.apellidos}}</h4>
+								              <h4 class="modal-title">{{colaborador.nombres}} {{colaborador.apellidos}}</h4>
 								              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								                <span aria-hidden="true">&times;</span>
 								              </button>
@@ -51,49 +51,43 @@
 								            
 								            <form role="form" method="post" action="{% url 'app_cc:modificar_colaborador' colaborador.pk %}">
 								              {% csrf_token %}
-						                		<div class="form-group">
-								            	    <label for="exampleInputEmail1">Identificación <a class="fa fa-asterisk" style="color:red"></a></label>
-								                    <input type="text" class="form-control" id="id_identificacion"
-								                    name="identificacion" placeholder="Identificación" value="{{colaborador.identificacion}}" required="">
-							                  	</div>
+								              <div class="row">
+						                  		<div class="col-sm-6">
+							                		<div class="form-group">
+									            	    <label for="exampleInputEmail1">Identificación<span style="color:red">*</span></label>
+									                    <input type="text" class="form-control" id="id_identificacion"
+									                    name="identificacion" placeholder="Identificación" value="{{colaborador.identificacion}}" required="">
+								                  	</div>
 
-							                  	<div class="form-group">
-								                    <label for="exampleInputEmail1">Nombres <a class="fa fa-asterisk" style="color:red"></a></label>
-								                    <input type="text" class="form-control" id="id_nombres" name="nombres" placeholder="Nombres" value="{{colaborador.nombres}}" required>
-							                  	</div>
+								                  	<div class="form-group">
+									                    <label for="exampleInputEmail1">Nombres<span style="color:red">*</span></label>
+									                    <input type="text" class="form-control" id="id_nombres" name="nombres" placeholder="Nombres" value="{{colaborador.nombres}}" required>
+								                  	</div>
+								                </div>
+						                  	  </div>
 
-							                  	<div class="form-group">
-								                    <label for="exampleInputEmail1">Apellidos <a class="fa fa-asterisk" style="color:red"></a></label>
-								                    <input type="text" class="form-control" id="id_apellidos" name="apellidos" placeholder="Apellidos" value="{{colaborador.apellidos}}" required>
-						                  		</div>
+							                  	<div class="row">
+							                  		<div class="col-sm-6">
+									                  	<div class="form-group">
+										                    <label for="exampleInputEmail1">Apellidos<span style="color:red">*</span></label>
+										                    <input type="text" class="form-control" id="id_apellidos" name="apellidos" placeholder="Apellidos" value="{{colaborador.apellidos}}" required>
+								                  		</div>
+
+								                  		<div class="row">
+								                  			<div class="col-sm-6">
+								                  				<div class="form-group">
+												                    <label for="exampleInputEmail1">Teléfono<span style="color:red">*</span></label>
+												                    <input type="text" class="form-control" id="id_telefono" name="telefono" placeholder="Teléfono" value="{{colaborador.telefono}}" required>
+										                  		</div>
+								                  			</div>
+								                  		</div>
+							                  		</div>
+						                  	    </div>
 
 						                  		<div class="row">
-						                  			<div class="col-sm-4">
-						                  				<div class="form-group">
-										                    <label for="exampleInputEmail1">Teléfono <a class="fa fa-asterisk" style="color:red"></a></label>
-										                    <input type="text" class="form-control" id="id_telefono" name="telefono" placeholder="Teléfono" value="{{colaborador.telefono}}" required>
-								                  		</div>
-						                  			</div>
-
-						                  			<div class="col-sm-4">
-						                  				<div class="form-group">
-										                    <label for="exampleInputEmail1">Deducción seguro <a class="fa fa-asterisk" style="color:red"></a></label>
-										                    <input type="text" class="form-control" id="id_seguro" name="seguro" placeholder="Deducción seguro" value="{{colaborador.deduccions_seguro}}" required>
-								                  		</div>
-						                  			</div>
-
-						                  			<div class="col-sm-4">
-						                  				<div class="form-group">
-										                    <label for="exampleInputEmail1">Salario <a class="fa fa-asterisk" style="color:red"></a></label>
-										                    <input type="text" class="form-control" id="id_salario" name="salario" placeholder="salario" value="{{colaborador.salario}}" required>
-								                  		</div>
-						                  			</div>
-						                  		</div>
-
-						                  		<div class="row">
-						                  			<div class="col-sm-4">
+						                  			<div class="col-sm-6">
 								                		<div class="form-group">
-										                  	<label>Fecha de nacimiento <a class="fa fa-asterisk" style="color:red"></a></label>
+										                  	<label>Fecha de nacimiento<span style="color:red">*</span></label>
 											                  <div class="input-group" >
 											                    <div class="input-group-prepend">
 											                      <span class="input-group-text">
@@ -101,14 +95,13 @@
 											                      </span>
 											                    </div>
 											                    <input type="text" class="form-control float-right" id="id_fecha_nacimiento" name="fecha_nacimiento" value="{{colaborador.fecha_nacimiento|date:'Y-m-d'}}" required>
-										                  </div>
-										              
-										           		 </div>
+										                  	   </div>
+										           		</div>
 								                	</div>
 
-								                	<div class="col-sm-4">
+								                	<div class="col-sm-6">
 								                		<div class="form-group">
-								                          <label>Genero <a class="fa fa-asterisk" style="color:red"></a></label>
+								                          <label>Genero<span style="color:red">*</span></label>
 								                          <select class="form-control selectpicker" style="width: 100%;" id="id_genero" data-live-search="true" name="genero">
 								                              <option value='0' selected="selected" >--SELECCIONE--</option>
 								                             {% for genero in generos  %}
@@ -117,10 +110,9 @@
 								                                {% else %}
 								                                    <option value='{{genero.pk}}'>{{genero.descripcion_genero}}</option>
 								                                {% endifequal %}
-								                               
 								                             {% endfor %}
 								                            </select>
-								                    </div>
+								                    	</div>
 								                	</div>
 						                  		</div> 
 								            </div>

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}
-UTH | REGISTRAR COLABORADOR
+REGISTRO
 {% endblock title %}
 {% load static %}
 {% block content %}
@@ -77,25 +77,9 @@ UTH | REGISTRAR COLABORADOR
             		</div>
           	</div>
 
-          	<div class="col-sm-4">
-  		  		<div class="form-group">
-                  <label for="exampleInputEmail1">Deducción seguro</label>
-                  <input type="text" class="form-control" id="id_seguro" name="seguro" placeholder="Deducción seguro" value="{{ret_data.deduccions_seguro}}">
-            		</div>
-          	</div>
-
-          	<div class="col-sm-4">
-          		<div class="form-group">
-                  <label for="exampleInputEmail1">Salario</label>
-                  <input type="text" class="form-control" id="id_salario" name="salario" placeholder="salario" value="{{ret_data.salario}}">
-            		</div>
-          	</div>
-          </div>
-
-          <div class="row">
-          	<div class="col-sm-4">
-          		<div class="form-group">
-                	<label>Fecha de nacimiento</label>
+            <div class="col-sm-4">
+              <div class="form-group">
+                  <label>Fecha de nacimiento</label>
                   <div class="input-group" >
                     <div class="input-group-prepend">
                       <span class="input-group-text">
@@ -104,62 +88,22 @@ UTH | REGISTRAR COLABORADOR
                     </div>
                     <input type="text" class="form-control float-right" id="id_fecha_nacimiento" name="fecha_nacimiento" value="{{ret_data.fecha_nacimiento|date:'YYYY-MM-DD'}}" >
                 </div>
-         		 </div>
-          	</div>
-          	<div class="col-sm-4">
-          		<div class="form-group">
-                    <label>Genero</label>
-                    <select class="form-control selectpicker" style="width: 100%;" id="id_genero" data-live-search="true" name="genero">
-                        <option value='0' selected="selected" >--SELECCIONE--</option>
-                       {% for genero in generos  %}
-                          {% ifequal genero.pk  ret_data.pk_genero   %} 
-                            <option value='{{genero.pk}}' selected>{{genero.descripcion_genero}}</option>
-                          {% else %}
-                              <option value='{{genero.pk}}'>{{genero.descripcion_genero}}</option>
-                          {% endifequal %}
-                         
-                       {% endfor %}
-                      </select>
-              </div>
-          	</div>
-
+             </div>
+            </div>
             <div class="col-sm-4">
               <div class="form-group">
-                    <label>País</label>
-                    <select class="form-control selectpicker" style="width: 100%;" id="id_pais" data-live-search="true" name="pais">
-                        <option value='0' >--SELECCIONE--</option>
-                       
-                       {% for pais in paises %}
-                          {% ifequal pais.pk ret_data.pk_pais %} 
-                            <option value='{{pais.pk}}' selected>{{pais.descripcion_pais}}</option>
-                          {% else %}
-                              <option value='{{pais.pk}}'>{{pais.descripcion_pais}}</option>
-                          {% endifequal %}
-                         
-                       {% endfor %}
-
-
-
-                      </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-             <div class="col-sm-4">
-              <div class="form-group">
-                  <label>Departamento</label>
-                    <select class="form-control selectpicker" style="width: 100%;" id="id_departamento" data-live-search="true" name="departamento">
-                        <option value='0' selected="selected" >--SELECCIONE--</option>
-                      
-                      {% for departamento in departamentos  %}
-                          {% ifequal departamento.pk  ret_data.pk_departamento %} 
-                            <option value='{{departamento.pk}}' selected>{{departamento.descripcion_departamento}}</option>
-                          
-                          {% endifequal %}
-                         
-                       {% endfor %}
-                    </select>
+                <label>Genero</label>
+                <select class="form-control selectpicker" style="width: 100%;" id="id_genero" data-live-search="true" name="genero">
+                    <option value='0' selected="selected" >--SELECCIONE--</option>
+                   {% for genero in generos  %}
+                      {% ifequal genero.pk  ret_data.pk_genero   %} 
+                        <option value='{{genero.pk}}' selected>{{genero.descripcion_genero}}</option>
+                      {% else %}
+                          <option value='{{genero.pk}}'>{{genero.descripcion_genero}}</option>
+                      {% endifequal %}
+                     
+                   {% endfor %}
+                  </select>
               </div>
             </div>
           </div>
