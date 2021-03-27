@@ -13,6 +13,7 @@
 						<th>Nombres</th>
 						<th>Apellidos</th>
 						<th>Teléfono</th>
+						<th>Fecha Nac.</th>
 						<th>Genero</th>
 						<th>Eliminar</th>
 						<th>Modificar</th>
@@ -25,6 +26,7 @@
 							<td>{{colaborador.nombres}}</td>
 							<td>{{colaborador.apellidos}}</td>
 							<td>{{colaborador.telefono}}</td>
+							<td>{{colaborador.fecha_nacimiento}}</td>
 							<td>{{colaborador.Genero}}</td>
 							<td>
 								<center>
@@ -85,28 +87,17 @@
 						                  	    </div>
 
 						                  		<div class="row">
-						                  			<div class="col-sm-6">
-						                  				<div class="input-group date"  id="reservationdate" data-target-input="nearest">
-															<input type="text" class="form-control datetimepicker-input" data-target="#reservationdate">
-															<div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-																<div class="input-group-text">
-											                        <i class="far fa-calendar-alt"></i>
-																</div>
-															</div>
-														</div>
-													</div>
-
-								                		<!--<div class="form-group">
-										                  	<label>Fecha de nacimiento<span style="color:red">*</span></label>
-											                  <div class="input-group">
-											                    <div class="input-group-prepend">
-											                      <span class="input-group-text">
-											                        <i class="far fa-calendar-alt"></i>
-											                      </span>
-											                    </div>
-											                    <input type="text" class="form-control float-right" id="id_fecha_nacimiento" name="fecha_nacimiento" value="{{colaborador.fecha_nacimiento|date:'Y-m-d'}}" required>
-										                  	   </div>
-										           		</div>-->
+							                		<div class="form-group">
+									                  	<label>Fecha de nacimiento<span style="color:red">*</span></label>
+										                  <div class="input-group">
+										                    <div class="input-group-prepend">
+										                      <span class="input-group-text">
+										                        <i class="far fa-calendar-alt"></i>
+										                      </span>
+										                    </div>
+										                    <input type="text" class="form-control float-right" id="id_fecha_nacimiento" name="fecha_nacimiento" value="{{colaborador.fecha_nacimiento|date:'Y-m-d'}}" required>
+									                  	   </div>
+									           		</div>
 
 								                	<div class="col-sm-6">
 								                		<div class="form-group">
