@@ -189,28 +189,5 @@ UTH | REGISTRAR COLABORADOR
 	    	 $('#id_genero').selectpicker({
               noneResultsText: 'No hay datos'
           });
-
-         $('#id_pais').on('change',function(){
-            
-            $('#id_departamento').find('option').not('option[value=""]').remove(); /* limpiamos el combobox*/
-            
-            if($('#id_pais').val().toString().trim() != ''){
-              $.get('{% url "colaborador:ajax_departamentos" %}',{id_pais:$('#id_pais').val().toString().trim()},function(data){
-                  if(data.departamentos == 'nada'){
-                    alert("NO EXISTE DEPARTAMENTO RELACIONADO A ESE PAIS");
-                    $('#id_departamento').selectpicker('refresh'); 
-                  }else{
-                    $.each(data,function(key,val){
-                      $('#id_departamento').append("<option value="+val.id+">"+val.descripcion_departamento+"</option>");
-                    });
-                    $('#id_departamento').selectpicker('refresh');
-                  }
-              },'json');
-
-            }else{
-              $('#id_departamento').selectpicker('refresh');
-            }
-
-         });
 	    </script>
 {% endblock js %}	

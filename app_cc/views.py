@@ -93,8 +93,7 @@ def registrar_colaborador(request):
 				ctx = {'generos':generos,
 						'errores':errores,
 						'ret_data':ret_data,
-						'guardar_editar':guardar_editar,
-						'paises':paises}
+						'guardar_editar':guardar_editar}
 				return render(request,'registrar_colaborador.html',ctx)
 			else:
 				transaction.commit()
@@ -124,7 +123,7 @@ def modificar_colaborador(request,id_colaborador):
 	if request.method=='POST':
 		print("aqui va modificar")
 
-		if request.POST.get('identificacion') == '' or request.POST.get('nombres') == '' or request.POST.get('apellidos') == '' or request.POST.get('telefono') == '' or request.POST.get('seguro') == '' or request.POST.get('salario') == '' or request.POST.get('fecha_nacimiento') == '' or int(request.POST.get('genero')) == 0 or int(request.POST.get('pais')) == 0 or int(request.POST.get('departamento')) == 0:
+		if request.POST.get('identificacion') == '' or request.POST.get('nombres') == '' or request.POST.get('apellidos') == '' or request.POST.get('telefono') == '' or request.POST.get('fecha_nacimiento') == '' or int(request.POST.get('genero')) == 0:
 			errores['identificacion'] = "HAY ERRORES"
 
 		if not errores:
